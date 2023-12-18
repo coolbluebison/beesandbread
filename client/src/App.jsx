@@ -1,11 +1,14 @@
 import Banner from "./components/Banner"
+import Carousel from "./components/Carosel"
 
 function App() {
 
   return (
     <>
       <Banner />
-      <h1 className="text-9xl text-blue-400">Hello</h1>
+      <div className="w-[70%] m-auto">
+      <Carousel />
+    </div>
     </>
   )
 }
