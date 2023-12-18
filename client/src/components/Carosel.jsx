@@ -47,13 +47,13 @@ export default function Carousel(){
                 href="#"
                 className="flex-none rounded-md bg-pink-400 px-4 py-1.5 text-sm md:text-lg font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
                 >
-                Save Now <span aria-hidden="true">&rarr;</span>
+                Save Now 
                 </a>
                 <a
                 href="#"
                 className="flex-none m-2 rounded-md bg-pink-400 px-4 py-1.5 text-sm md:text-lg font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
                 >
-                Shop Local<span aria-hidden="true">&rarr;</span>
+                Shop Local 
                 </a>
             </div>
         </div>

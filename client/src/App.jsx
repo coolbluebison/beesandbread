@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Banner />
-      <div className="w-full md:w-[75%] m-auto">
+      <div className="w-full  m-auto">
       <Carousel />
       </div>
       <GroceryNav />
