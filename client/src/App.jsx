@@ -1,14 +1,16 @@
 import Banner from "./components/Banner"
 import Carousel from "./components/Carosel"
+import GroceryNav from "./components/GroceryNav"
 
 function App() {
 
   return (
     <>
       <Banner />
-      <div className="w-[70%] m-auto">
+      <div className="w-full md:w-[75%] m-auto">
       <Carousel />
-    </div>
+      </div>
+      <GroceryNav />
     </>
   )
 }
