@@ -46,7 +46,7 @@ export default function GroceryNav(){
                 <div className="flex justify-center gap-8 p-5">
                     {subCat.map(a => 
                         <div className="h-40 w-40 bg-pink-200 relative group rounded-md transition-all ease-out duration-100">
-                        <div className="flex absolute rounded-b-md h-16 w-full bottom-0 group-hover:h-20 transition-all ease-out duration-100 bg-pink-400 justify-center items-center font-semibold">
+                        <div className="flex absolute rounded-b-md h-16 w-full bottom-0 group-hover:h-20 group-hover:text-lg transition-all ease-out duration-100 bg-pink-400 justify-center items-center font-semibold">
                             {a}
                         </div>    
                         </div>  
