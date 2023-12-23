@@ -23,7 +23,7 @@ export default function NavBar(){
                     <ul className="menu min-h-full group m-0 p-0 bg-gray-100 text-base-content">
                         <div className="flex group transition-all ease-linear duration-500">
                             <div className="w-80">
-                                <p className="text-center font-semibold text-black p-8 text-lg">Welcome 'User'</p>
+                                <p className="text-center font-semibold text-black p-8 text-lg">Welcome Back 'User'!</p>
                                 <p className="w-full h-[0.5px] mb-2 bg-gray-400"></p>
                                     <p className="flex items-center text-2xl text-gray-900 font-bold w-full hover:bg-gray-400 transition-all ease-linear cursor-pointer duration-75 px-4 py-1">Categories
                                     <svg className="ml-auto h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
