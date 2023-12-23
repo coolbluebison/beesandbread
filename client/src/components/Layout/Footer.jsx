@@ -1,7 +1,7 @@
 
 export default function Footer(){
     return(
-        <div className="w-full bottom-0 mt-10 bg-orange-300 grid grid-cols-1 md:grid-cols-2">
+        <div className="w-full bottom-0 bg-orange-300 grid grid-cols-1 md:grid-cols-2">
             <div className="col-span-1  flex justify-center items-center min-h-[350px]">
                 <div>
                     <p className="font-bold text-3xl text-center ">Bees N Bread</p>
