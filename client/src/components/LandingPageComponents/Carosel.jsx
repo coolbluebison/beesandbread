@@ -11,11 +11,6 @@ export default function Carousel(){
 
     let [current, setCurrent] = useState(0);
 
-    let previousSlide = () => {
-        if (current === 0) setCurrent(slides.length - 1);
-        else setCurrent(current - 1);
-    };
-
     let nextSlide = () => {
         if (current === slides.length - 1) setCurrent(0);
         else setCurrent(current + 1);
