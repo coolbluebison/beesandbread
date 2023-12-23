@@ -34,7 +34,7 @@ export default function GroceryNav(){
         <div className="w-full text-center">
             <div className="bg-green-200 shadow-lg">
             <p className="font-bold text-lg md:text-2xl py-4">View Products Fresh From Farmers</p>
-            <div className="flex justify-center font-bold text-2xl w-full md:w-[70%] m-auto overflow-x-scroll no-scrollbar">
+            <div className="flex md:justify-center font-bold text-2xl w-full md:w-[70%] m-auto overflow-x-scroll no-scrollbar">
                 {categories.map(c =>
                     <div className="cursor-pointer" onClick={()=>setActive(c)}>
                      <h1 className="px-10 mb-2" >{c.main}</h1>
@@ -44,7 +44,7 @@ export default function GroceryNav(){
             </div>
             </div>
                 <div className="flex justify-center p-4">
-                <div className=" gap-8 grid grid-cols-2 md:flex justify-center">
+                <div className=" gap-6 md:gap-12 grid grid-cols-2 md:flex justify-center">
                     {subCat.map(a => 
                         <div className="h-36 w-36 bg-pink-200 relative group rounded-md transition-all ease-out duration-100 col-span-1">
                         <div className="flex absolute rounded-b-md h-12 w-full bottom-0 group-hover:h-16 group-hover:text-lg transition-all ease-out duration-100 bg-pink-400 justify-center items-center font-semibold">
