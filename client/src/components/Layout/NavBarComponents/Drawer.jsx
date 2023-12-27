@@ -1,6 +1,6 @@
 export default function DrawerMain(){
     return(
-        <div className="drawer-side">
+        <div className="drawer-side z-50">
                     <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu min-h-full group m-0 p-0 bg-gray-100 text-base-content">
                         <div className="flex group transition-all ease-linear duration-500">

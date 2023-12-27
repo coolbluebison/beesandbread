@@ -24,7 +24,7 @@ export default function SubNav(){
 
 
     return(
-        <div className="w-full h-10 flex justify-evenly px-12 gap-4 bg-gray-200 items-center">
+        <div className="w-full h-12 flex justify-evenly px-12 gap-4 bg-slate-100 items-center">
             {categories.map(cat => 
                 <div className="group relative h-full flex items-center" key={cat}>
                     <p className="text-gray-600 cursor-pointer font-semibold hover:text-cyan-800 " key={cat + "p"}>{cat}</p>
