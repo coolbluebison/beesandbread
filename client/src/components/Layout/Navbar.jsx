@@ -34,10 +34,10 @@ export default function NavBar(){
                         <label className="text-2xl font-semibold text-gray-800 cursor-pointer flex items-center gap-2"><IoPricetagOutline size={"1.5rem"}/>Deals</label>
                         <label className="text-2xl font-semibold text-gray-800 cursor-pointer flex items-center gap-2"><RiLoopRightFill size={"1.5rem"}/> Autoship</label>
                         <label className="text-lg underline font-semibold text-gray-700 cursor-pointer">Get 15% Off</label>
-                        <div className="flex justify-between gap-4 w-1/2">
+                        <div className="flex justify-between gap-4 w-1/2 items-center">
                             <div className="w-[80%] flex bg-white rounded-full h-12 items-center px-4 shadow-md">
                                 <IoSearchOutline size={"1.5rem"}/>
-                                <input className="w-full h-10 bg-white outline-none mx-4"></input>
+                                <input className="w-full h-10 bg-white outline-none mx-4 text-gray-800" placeholder="Search..."></input>
                             </div>
                             <span className="h-12 w-12 bg-white rounded-full hover:scale-110 transition-all duration-200 items-center flex justify-center text-gray-700 shadow-md"><RxAvatar size={"2rem"}/></span>
                             <span className="h-12 w-12 bg-white rounded-full hover:scale-110 transition-all duration-200 items-center flex justify-center text-gray-700 shadow-md"><BsCart2 size={"2rem"}/> </span>
