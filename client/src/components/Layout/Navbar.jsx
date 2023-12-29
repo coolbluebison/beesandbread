@@ -5,6 +5,7 @@ import DrawerMain from "./NavBarComponents/Drawer"
 import Banner from "./NavBarComponents/Banner"
 import SubNav from "./NavBarComponents/SubNav"
 import CartNav from "./NavBarComponents/CartNav";
+import AutoshipNav from "./NavBarComponents/AutoshipNav";
 
 // icon imports
 import { CiMenuBurger } from "react-icons/ci";
@@ -22,6 +23,9 @@ export default function NavBar(){
     let [cartHover,setCartHover] = useState(false)
     let [cartDisplay,setCartDisplay] = useState(false)
 
+    let [ASHover,setASHover] = useState(false)
+    let [ASDisplay,setASDisplay] = useState(false)
+
     useEffect(()=>{
 
         const timeout = setTimeout(()=>{
@@ -31,6 +35,16 @@ export default function NavBar(){
           return () => clearTimeout(timeout)
 
     },[cartHover])
+
+    useEffect(()=>{
+
+        const timeout = setTimeout(()=>{
+            setASDisplay(ASHover)
+          },100)
+      
+          return () => clearTimeout(timeout)
+
+    },[ASHover])
 
     return(
         <>
@@ -44,7 +58,7 @@ export default function NavBar(){
                         <label htmlFor="my-drawer" className="text-2xl font-semibold text-gray-800 cursor-pointer flex items-center gap-2"><CiMenuBurger size={"1.5rem"}/>Menu</label>
                         <label className="text-2xl font-semibold text-gray-800 cursor-pointer flex items-center gap-2"><CiRedo size={"1.5rem"}/> Buy It Again</label>
                         <label className="text-2xl font-semibold text-gray-800 cursor-pointer flex items-center gap-2"><IoPricetagOutline size={"1.5rem"}/>Deals</label>
-                        <label className="text-2xl font-semibold text-gray-800 cursor-pointer flex items-center gap-2"><RiLoopRightFill size={"1.5rem"}/> Autoship</label>
+                        <label className="text-2xl font-semibold text-gray-800 cursor-pointer flex items-center gap-2" onMouseOver={()=>{setASHover(true)}} onMouseLeave={()=>{setASHover(false)}}><RiLoopRightFill size={"1.5rem"}/> Autoship</label>
                         <label className="text-lg underline font-semibold text-gray-700 cursor-pointer">Get 15% Off</label>
                         <div className="flex justify-between gap-4 w-1/2 items-center">
                             <div className="w-[80%] flex bg-white rounded-full h-12 items-center px-4 shadow-md">
@@ -58,6 +72,7 @@ export default function NavBar(){
                 </div> 
                 <DrawerMain />
             </div>
+            <AutoshipNav ASDisplay={ASDisplay} setASHover={setASHover}/>
             <CartNav cartHover={cartDisplay} setCartHover={setCartHover}/>
             <SubNav />
         </nav>
