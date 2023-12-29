@@ -1,6 +1,10 @@
+import { useState,useEffect } from "react";
+
+// component imports
 import DrawerMain from "./NavBarComponents/Drawer"
 import Banner from "./NavBarComponents/Banner"
 import SubNav from "./NavBarComponents/SubNav"
+import CartNav from "./NavBarComponents/CartNav";
 
 // icon imports
 import { CiMenuBurger } from "react-icons/ci";
@@ -11,14 +15,22 @@ import { IoSearchOutline } from "react-icons/io5";
 import { RxAvatar } from "react-icons/rx";
 import { BsCart2 } from "react-icons/bs";
 
+
+
 export default function NavBar(){
 
-    function rightArrow(){
-        return(
-    <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 7L15 12L10 17" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>)
-    }
+    let [cartHover,setCartHover] = useState(false)
+    let [cartDisplay,setCartDisplay] = useState(false)
+
+    useEffect(()=>{
+
+        const timeout = setTimeout(()=>{
+            setCartDisplay(cartHover)
+          },100)
+      
+          return () => clearTimeout(timeout)
+
+    },[cartHover])
 
     return(
         <>
@@ -40,12 +52,13 @@ export default function NavBar(){
                                 <input className="w-full h-10 bg-white outline-none mx-4 text-gray-800" placeholder="Search..."></input>
                             </div>
                             <span className="h-12 w-12 bg-white rounded-full hover:scale-110 transition-all duration-200 items-center flex justify-center text-gray-700 shadow-md"><RxAvatar size={"2rem"}/></span>
-                            <span className="h-12 w-12 bg-white rounded-full hover:scale-110 transition-all duration-200 items-center flex justify-center text-gray-700 shadow-md"><BsCart2 size={"2rem"}/> </span>
+                            <span className="h-12 w-12 bg-white rounded-full hover:scale-110 transition-all duration-200 items-center flex justify-center text-gray-700 shadow-md hover:bg-green-200" onMouseOver={()=>{setCartHover(true)}} onMouseLeave={()=>{setCartHover(false)}}><BsCart2 size={"2rem"}/> </span>
                         </div>
                     </div>
                 </div> 
                 <DrawerMain />
             </div>
+            <CartNav cartHover={cartDisplay} setCartHover={setCartHover}/>
             <SubNav />
         </nav>
         </>

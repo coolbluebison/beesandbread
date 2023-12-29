@@ -48,7 +48,7 @@ export default function BasicGrid() {
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
   return (
-    
+    <div className='pt-60 mx-20'>
     <Box sx={{ flexGrow: 1 }}>
     
       <Grid container spacing={6}>
@@ -151,6 +151,6 @@ export default function BasicGrid() {
     
     </Box>
 
-
+    </div>
   );
 }
