@@ -10,11 +10,14 @@ import IndividualItem from "./components/IndividualItemComponents/IndividualItem
 
 import Rootlayout from './components/Layout/Rootlayout';
 
+import Deals from './components/DealsPage/Deals';
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Rootlayout/>}>
       <Route index element= { <LandingPage /> } />
         <Route path="/item" element= { <IndividualItem /> } />
+        <Route path="/deals" element= { <Deals /> } />
     </Route>
   )
 )
