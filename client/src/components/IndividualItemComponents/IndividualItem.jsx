@@ -178,7 +178,7 @@ export default function BasicGrid() {
         <br></br> 
         
         <Stack direction="row" spacing={2}>
-          <ProductPaper variant="elevation" elevation={4} >
+          <ProductPaper variant="elevation" elevation={2} >
             {/* Top portion  */}
             <Stack container spacing={1}>
               <Stack direction='row'>
@@ -212,6 +212,182 @@ export default function BasicGrid() {
           </ProductPaper>
         </Stack>      
       </Box>
+
+      <br>
+      </br>
+
+
+      {/* A section divider / or opener that open the way for the producer to be introduced */}
+      <Box className="bg-pink-200"> 
+        <Stack>
+          <span>
+            <h2 className="text-lg font-bold text-center">Why it is great</h2> 
+          </span>
+        </Stack>
+      </Box>
+
+      {/* This is just an example page about a producer. Each producer should have a different page dedicated to them maybe edited by the team but provided by the producer. */}
+      <Box className="bg-pink-100 p-6">
+        <Stack spacing={4} className="items-center">
+
+          <h2 className="text-2xl font-bold text-center">Green Pasture Ranch</h2>
+          
+          <img
+            className="rounded-lg"
+            src="https://media.istockphoto.com/id/1332281472/photo/shot-of-a-young-woman-working-with-cows-on-a-farm.jpg?s=2048x2048&w=is&k=20&c=wndgYapuDOu9y2HEktVvw12gxvqFVbjROW0Ry3D2hEE="
+            alt="Green Pasture Ranch"
+          />
+
+          <p className="text-center text-md">
+            Nestled in the heart of the countryside, Green Pasture Ranch specializes in organic, free-range farming. Our dedication to sustainable practices and animal welfare ensures premium quality produce. Experience the farm-to-table difference with our fresh, organic products.
+          </p>
+
+          <blockquote className="italic text-center">
+            "Our commitment to eco-friendly farming and natural processes makes every product uniquely special." - Jane Doe, Farmer
+          </blockquote>
+
+          <Button variant="outlined" color="primary">
+            View Photo Gallery
+          </Button>
+
+          <div className="text-center">
+            <h3 className="text-lg font-semibold">Featured Products</h3>
+            <ul className="list-disc">
+              <li>Organic Free-Range Eggs</li>
+              <li>Freshly Picked Vegetables</li>
+              <li>Homemade Cheese and Dairy Products</li>
+            </ul>
+          </div>
+
+          <div className="text-center">
+            <h3 className="text-lg font-semibold">What Our Customers Say</h3>
+            <p>"I've never tasted fresher, more flavorful produce! The quality is unmatched." - Emily R.</p>
+            <p>"Green Pasture Ranch's commitment to sustainability is truly inspiring." - Mark B.</p>
+          </div>
+
+          <Button variant="outlined" color="primary">
+            Watch Our Farm Tour
+          </Button>
+
+        </Stack>
+      </Box>
+
+      <br>
+      </br>
+      <Box>
+        <span><h2 className="text-xl font-bold text-center">Other Customers Also Bought</h2></span>
+        <br></br> 
+        
+        <Stack direction="row" spacing={2}>
+          <ProductPaper variant="elevation" elevation={2} >
+            {/* Top portion  */}
+            <Stack container spacing={1}>
+              <Stack direction='row'>
+                <Grid container spacing={3}>
+                  <Grid item xs={3}>
+                    <img src={"https://img.thrivemarket.com/store/full/8/6/861555000125-1_1_1.jpg"} alt={`Product`} />
+                  </Grid>
+                  <Grid item xs={9} alignContent='left'>
+
+                    <Stack spacing={1}>
+                      <span >                  
+                        <h3 className="text-sm font-bold text-left">Fourth & Heart, Grass Fed Ghee, Garlic</h3>
+                        <h2 className="text-xs text-left">9 oz jar</h2>
+                      </span>
+                      <span >
+                        <p className="text-xs font-bold text-left">$12.49</p>
+                        <p className="text-xs text-left">-23%</p>
+                      </span>
+                    </Stack>
+                  
+                  </Grid>
+                </Grid>
+              </Stack> 
+              {/* Bottom portion */}
+              <Stack direction='row'>
+                <Button size="sm" variant={'soft'} color="warning">
+                  Add to Cart
+                </Button>
+              </Stack>
+            </Stack> 
+          </ProductPaper>
+
+          <ProductPaper variant="elevation" elevation={2} >
+            {/* Top portion  */}
+            <Stack container spacing={1}>
+              <Stack direction='row'>
+                <Grid container spacing={3}>
+                  <Grid item xs={3}>
+                    <img src={"https://img.thrivemarket.com/store/full/8/5/853104007747_1--_1_1.jpg?w=1260&jpg_quality=90"} alt={`Product`} />
+                  </Grid>
+                  <Grid item xs={9} alignContent='left'>
+
+                    <Stack spacing={1}>
+                      <span >                  
+                        <h3 className="text-sm font-bold text-left">High Heat Original Ghee Oil Blend Spray</h3>
+                        <h2 className="text-xs text-left">5 oz canister</h2>
+                      </span>
+                      <span >
+                        <p className="text-xs font-bold text-left">$9.99</p>
+                        <p className="text-xs text-left">-5%</p>
+                      </span>
+                    </Stack>
+                  
+                  </Grid>
+                </Grid>
+              </Stack> 
+              {/* Bottom portion */}
+              <Stack direction='row'>
+                <Button size="sm" variant={'soft'} color="warning">
+                  Add to Cart
+                </Button>
+              </Stack>
+            </Stack> 
+          </ProductPaper>
+
+          <ProductPaper variant="elevation" elevation={2} >
+            {/* Top portion  */}
+            <Stack container spacing={1}>
+              <Stack direction='row'>
+                <Grid container spacing={3}>
+                  <Grid item xs={3}>
+                    <img src={"https://img.thrivemarket.com/store/full/8/5/856166004006_front_1_1.jpg?w=1260&jpg_quality=90"} alt={`Product`} />
+                  </Grid>
+                  <Grid item xs={9} alignContent='left'>
+
+                    <Stack spacing={1}>
+                      <span >                  
+                        <h3 className="text-sm font-bold text-left">Beef Tallow</h3>
+                        <h2 className="text-xs text-left">14 oz jar</h2>
+                      </span>
+                      <span >
+                        <p className="text-xs font-bold text-left">$14.99</p>
+                        <p className="text-xs text-left">-14%</p>
+                      </span>
+                    </Stack>
+                  
+                  </Grid>
+                </Grid>
+              </Stack> 
+              {/* Bottom portion */}
+              <Stack direction='row'>
+                <Button size="sm" variant={'soft'} color="warning">
+                  Add to Cart
+                </Button>
+              </Stack>
+            </Stack> 
+          </ProductPaper>
+
+
+
+
+
+        </Stack>      
+      </Box>
+
+
+
+
 
     </div>
 
