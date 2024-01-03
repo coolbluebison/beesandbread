@@ -52,7 +52,7 @@ export default function DealsNav({cat}){
             <div className="mx-10 flex justify-start pt-4 gap-4 overflow-x-scroll no-scrollbar" ref={div}>
                 {cat.map(c => { return(
                     <div className="group" key={c.index}>
-                        <div className="h-24 w-24 bg-gray-200 rounded-2xl">
+                        <div className="h-28 w-28 bg-gray-200 rounded-2xl">
                             Picture Here
                         </div>
                         <p className="text-center text-xs group-hover:text-black group-hover:underline">{c}</p>

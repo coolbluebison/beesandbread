@@ -56,7 +56,7 @@ export default function BasicGrid() {
 
   return (
     
-    <div className='pt-60 bg-white'>
+    <div className='pt-60 bg-white z-40'>
       <Box sx={{ flexGrow: 1 }}>
             
         <Grid container spacing={6}>

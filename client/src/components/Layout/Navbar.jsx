@@ -6,6 +6,7 @@ import Banner from "./NavBarComponents/Banner"
 import SubNav from "./NavBarComponents/SubNav"
 import CartNav from "./NavBarComponents/CartNav";
 import AutoshipNav from "./NavBarComponents/AutoshipNav";
+import Checkout from "../Checkout/Checkout";
 
 // icon imports
 import { CiMenuBurger } from "react-icons/ci";
@@ -15,6 +16,7 @@ import { RiLoopRightFill } from "react-icons/ri";
 import { IoSearchOutline } from "react-icons/io5";
 import { RxAvatar } from "react-icons/rx";
 import { BsCart2 } from "react-icons/bs";
+import { IoCloseOutline } from "react-icons/io5";
 
 
 
@@ -36,6 +38,7 @@ export default function NavBar(){
 
     },[cartHover])
 
+
     useEffect(()=>{
 
         const timeout = setTimeout(()=>{
@@ -44,7 +47,9 @@ export default function NavBar(){
       
           return () => clearTimeout(timeout)
 
-    },[ASHover])
+},[ASHover])
+
+    let [cart,setCart] = useState(false)
 
     return(
         <>
@@ -66,16 +71,17 @@ export default function NavBar(){
                                 <input className="w-full h-10 bg-white outline-none mx-4 text-gray-800" placeholder="Search..."></input>
                             </div>
                             <span className="h-12 w-12 bg-white rounded-full hover:scale-110 transition-all duration-200 items-center flex justify-center text-gray-700 shadow-md"><RxAvatar size={"2rem"}/></span>
-                            <span className="h-12 w-12 bg-white rounded-full hover:scale-110 transition-all duration-200 items-center flex justify-center text-gray-700 shadow-md hover:bg-green-200" onMouseOver={()=>{setCartHover(true)}} onMouseLeave={()=>{setCartHover(false)}}><BsCart2 size={"2rem"}/> </span>
+                            <span className="h-12 w-12 bg-white rounded-full hover:scale-110 transition-all duration-200 items-center flex justify-center text-gray-700 shadow-md hover:bg-green-200" onClick={()=>setCart(!cart)} onMouseOver={!cart ? ()=>{setCartHover(true)} : null} onMouseLeave={()=>{setCartHover(false)}}>{cart ? <IoCloseOutline size={"2rem"}/>: <BsCart2 size={"2rem"}/> }</span>
                         </div>
                     </div>
                 </div> 
-                <DrawerMain />
             </div>
             <AutoshipNav ASDisplay={ASDisplay} setASHover={setASHover}/>
             <CartNav cartHover={cartDisplay} setCartHover={setCartHover}/>
             <SubNav />
+            <Checkout cart={cart} />
         </nav>
+        <DrawerMain />
         </>
     )
 }

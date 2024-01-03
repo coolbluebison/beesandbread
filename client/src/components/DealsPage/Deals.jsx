@@ -22,7 +22,7 @@ export default function Deals(){
     ]
     
     return(
-        <div className="px-10 md:px-28 pt-52 bg-white">
+        <div className="px-10 md:px-36 pt-52  bg-white">
             <DealsNav cat={categories}/>
         </div>
     )
