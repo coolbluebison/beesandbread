@@ -1,16 +1,51 @@
 import { BiSolidBinoculars } from "react-icons/bi";
 import { FaAngleLeft } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
+import CheckoutCard from "./CheckoutCard";
 
-import { useState } from "react";
+import { useState,useRef } from "react";
 
 export default function Checkout({cart}){
 
     let [arrow,setArrow] = useState(false)
+    let [arrow1,setArrow1] = useState(false)
+
+    const div = useRef(null)
+    const div1 = useRef(null)
+
+    function rightArrow(div,setArrow) {
+        const container = div.current;
+    
+        // Calculate the total width of the content inside the container
+        const totalWidth = container.scrollWidth;
+    
+        // Scroll to the end of the content
+        container.scrollTo({
+            left: totalWidth,
+            behavior: "smooth",
+        });
+        setArrow(true)
+    }
+
+    function leftArrow(div,setArrow) {
+        const container = div.current;
+    
+        // Calculate the total width of the content inside the container
+        const totalWidth = container.scrollWidth;
+    
+        // Scroll to the end of the content
+        container.scrollTo({
+            left: -totalWidth,
+            behavior: "smooth",
+        });
+        setArrow(false)
+    }
+
 
     return(
-        <div className={cart? "text-black absolute top-44 w-screen min-h-screen bg-white -z-50 transition-all duration-500" : "text-black absolute top-0 w-screen bg-white -translate-y-full -z-50 transition-all duration-500"}>
-            <div className="mx-40 py-10 px-4">
+        <div className={cart? "text-black relative w-screen h-[81vh] bg-white -z-50 transition-all duration-500 overflow-auto py-10" : "text-black absolute top-0 w-screen bg-white -translate-y-full -z-50 transition-all duration-500"}>
+       
+            <div className="mx-40  pb-8 px-4">
                 <p className="text-4xl font-bold">Your Cart</p>
                 <p className="text-lg">0 Boxes, 0 Items ($0.00)</p>
             </div>
@@ -24,21 +59,55 @@ export default function Checkout({cart}){
                 </div>
             </div>
             <div className="w-full px-40 flex justify-between items-center py-4">
-                <p className="font-bold text-4xl">Buy It Again</p>
+                <p className="font-bold text-4xl py-10 ">Buy It Again</p>
                 <div className="flex items-center gap-2">
                     <p className="text-rose-400 text-lg underline cursor-pointer font-semibold">See All</p>
-                    <span className={arrow ? "h-8 w-8 bg-rose-200 hover:bg-rose-300 rounded-full flex items-center justify-center  cursor-pointer text-black" : "h-8 w-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-100"} onClick={()=>{leftArrow()}}><FaAngleLeft size={"1.2rem"}/></span>
-                    <span className={!arrow ? "h-8 w-8 bg-rose-200 hover:bg-rose-300 rounded-full flex items-center justify-center cursor-pointer  text-black" : "h-8 w-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-100"} onClick={()=>{rightArrow()}}><FaAngleRight size={"1.2rem"}/></span>
+                    <span className={arrow ? "h-8 w-8 bg-rose-200 hover:bg-rose-300 rounded-full flex items-center justify-center  cursor-pointer text-black" : "h-8 w-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-100"} onClick={()=>{leftArrow(div,setArrow)}}><FaAngleLeft size={"1.2rem"}/></span>
+                    <span className={!arrow ? "h-8 w-8 bg-rose-200 hover:bg-rose-300 rounded-full flex items-center justify-center cursor-pointer  text-black" : "h-8 w-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-100"} onClick={()=>{rightArrow(div,setArrow)}}><FaAngleRight size={"1.2rem"}/></span>
                 </div>
             </div>
-            <div className="w-full px-40 flex justify-between items-center py-4">
-                <p className="font-bold text-4xl">Recommended for you</p>
+            
+            <div className="flex items-center justify-center px-40">
+            <div className="w-[100%]  gap-16 flex justify-start overflow-x-scroll overflow-hidden no-scrollbar" ref={div}>
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                
+            </div>
+            </div>
+            
+            <div className="w-full  px-40 flex justify-between items-center py-4">
+                <p className="font-bold text-4xl py-10">Recommended for you</p>
                 <div className="flex items-center gap-2">
                     <p className="text-rose-400 text-lg underline cursor-pointer font-semibold">See All</p>
-                    <span className={arrow ? "h-8 w-8 bg-rose-200 hover:bg-rose-300 rounded-full flex items-center justify-center  cursor-pointer text-black" : "h-8 w-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-100"} onClick={()=>{leftArrow()}}><FaAngleLeft size={"1.2rem"}/></span>
-                    <span className={!arrow ? "h-8 w-8 bg-rose-200 hover:bg-rose-300 rounded-full flex items-center justify-center cursor-pointer  text-black" : "h-8 w-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-100"} onClick={()=>{rightArrow()}}><FaAngleRight size={"1.2rem"}/></span>
+                    <span className={arrow1 ? "h-8 w-8 bg-rose-200 hover:bg-rose-300 rounded-full flex items-center justify-center  cursor-pointer text-black" : "h-8 w-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-100"} onClick={()=>{leftArrow(div1,setArrow1)}}><FaAngleLeft size={"1.2rem"}/></span>
+                    <span className={!arrow1 ? "h-8 w-8 bg-rose-200 hover:bg-rose-300 rounded-full flex items-center justify-center cursor-pointer  text-black" : "h-8 w-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-100"} onClick={()=>{rightArrow(div1,setArrow1)}}><FaAngleRight size={"1.2rem"}/></span>
                 </div>
             </div>
+
+            <div className="flex items-center justify-center px-40">
+            <div className="w-[100%]  gap-16 flex justify-start overflow-x-scroll overflow-hidden no-scrollbar" ref={div1}>
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                <CheckoutCard />
+                
+            </div>
+            </div>
+            
         </div>
     )
 }
