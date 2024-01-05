@@ -2,7 +2,7 @@
 
 export default function CartNav({cartHover,setCartHover}){
     return(
-        <div className={cartHover?"w-96 px-4 bg-gray-100 rounded-b-2xl absolute z-40 right-5 shadow-md":"hidden"} onMouseOver={()=>{setCartHover(true)}} onMouseLeave={()=>{setCartHover(false)}}>
+        <div className={cartHover?"w-96 px-4 bg-white rounded-b-2xl absolute z-40 right-5 shadow-md":"hidden"} onMouseOver={()=>{setCartHover(true)}} onMouseLeave={()=>{setCartHover(false)}}>
             {/* put content here */}
             <div className="flex w-full justify-between py-2 text-black">
                 <p className="font-semibold">Your Cart: 0 Items</p>

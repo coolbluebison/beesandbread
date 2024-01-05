@@ -92,7 +92,7 @@ export default function Checkout({cart}){
                 </div>
             </div>
 
-            <div className="flex items-center justify-center px-40">
+            <div className="flex items-center justify-center px-40 pb-10">
             <div className="w-[100%]  gap-16 flex justify-start overflow-x-scroll overflow-hidden no-scrollbar" ref={div1}>
                 <CheckoutCard />
                 <CheckoutCard />

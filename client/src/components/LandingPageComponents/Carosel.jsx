@@ -25,14 +25,14 @@ export default function Carousel(){
 
 
     return(
-        <div className="overflow-hidden relative">
+        <div className="overflow-hidden relative mx-0 md:mx-52  md:h-96">
             <div
-                className={`flex transition ease-out duration-500`}
+                className={`flex transition ease-out duration-500 `}
                 style={{
                 transform: `translateX(-${current * 100}%)`,
                 }}
             >
-                {slides.map(s => <img src={s} />)}
+                {slides.map(s => <img src={s}/>)}
             </div>
 
         <div className="absolute flex justify-center items-center text-center md:text-left h-full p-5 md:pl-20 top-0 w-full md:w-[40%] ">
@@ -61,7 +61,7 @@ export default function Carousel(){
                     setCurrent(i);
                 }}
                 key={"circle" + i}
-                className={`rounded-full w-3 h-3 cursor-pointer  ${
+                className={`rounded-full md:w-3 md:h-3 w-1 h-1 cursor-pointer  ${
                     i == current ? "bg-white" : "bg-gray-500"
                 }`}
                 ></div>

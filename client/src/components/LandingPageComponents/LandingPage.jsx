@@ -8,12 +8,12 @@ function LandingPage() {
 
     return (
 
-      <>
+      <div className="bg-white pt-[12rem]">
 
         <Carousel />
         <GroceryNav />
         
-      </>
+      </div>
   
 
     )

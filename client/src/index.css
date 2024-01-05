@@ -13,3 +13,9 @@
         scrollbar-width: none;  /* Firefox */
   }
 }
+
+@layer base {
+    html {
+      font-family: "Lato", system-ui, sans-serif;
+    }
+  }
