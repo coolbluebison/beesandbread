@@ -15,6 +15,8 @@ from config import db, bcrypt
 # Has the user_type property to enable 2 types of users
 # Type1-> Customers
 # Type2-> Sellers 
+    
+
 
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
@@ -22,14 +24,14 @@ class User(db.Model, SerializerMixin):
     username = db.Column(db.String)
     email = db.Column(db.String)
     _password_hash = db.Column(db.String)
-    user_type = db.Column(db.String)
+    address = db.Column(db.String)
 
     # relationships
     reviews = db.relationship('Review', backref='user')
     cart = db.relationship('Cart', uselist=False, backref='user')
     orders = db.relationship('Order', backref='user')
 
-    #password stuff
+    #password hash and authenticate
     @hybrid_property
     def password_hash(self):
         return self._password_hash
@@ -49,14 +51,18 @@ class User(db.Model, SerializerMixin):
     #serializers
     serialize_rules = ('-reviews', '-cart', '-orders')
 
+
 class Seller(db.Model, SerializerMixin):
     __tablename__ = 'sellers'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     address = db.Column(db.String)
+    description_assets = db.Column(db.String)
+    email = db.Column(db.String)
+    phone_number = db.Column(db.String)
     
     #relationships
-    products = db.relationship('Product', backref='farmer')
+    products = db.relationship('Product', backref='seller')
 
     #validations
 
@@ -72,35 +78,35 @@ class Product (db.Model, SerializerMixin):
     # for example '10 ounce can', '1 lbs package'
     quantity_desc = db.Column(db.String)
     product_cat = db.Column(db.String)
-
     # product_images
     image_files = db.Column(db.String)
-
     # for example grass-fed, organic etc.
     qualities = db.Column(db.String)
 
-    #relationships
+    
     # seller identifier
     seller_id = db.Column(db.Integer, db.ForeignKey('sellers.id'))
+
+    #relationships
     reviews = db.relationship('Review', backref='products')
-    cart_items = db.relationship('CartItem', backref='products')
 
     #validations
 
     #serializers
-    serialize_rules = ('-sellers', '-reviews', '-cart_items')
+    serialize_rules = ('-sellers', '-reviews')
+
 
 class Review(db.Model, SerializerMixin):
     __tablename__ = 'reviews'
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String)
     rating = db.Column(db.Integer)
-    post_date = db.Column(db.DateTime)
-    update_date= db.Column(db.DateTime)
+    post_date = db.Column(db.DateTime, default = datetime.utcnow)
+    update_date= db.Column(db.DateTime, default = datetime.utcnow)
     
     # relationships
-    user_id = db.Column(db.Integer, db.ForeignKey('User.id'))
-    product_id = db.Column(db.Integer, db.ForeignKey('Product.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
 
     # validations
     # rating must be between 1 and 5 stars
@@ -115,18 +121,17 @@ class Review(db.Model, SerializerMixin):
     #serializers
     serialize_rules = ('-user', '-product')
 
+
 # The last cart for any users
-# Enables storing latest cart 
-    
+# Enables storing latest cart
 class Cart(db.Model, SerializerMixin):
-    __tablename__ = 'cart'
+    __tablename__ = 'carts'
     id = db.Column(db.Integer, primary_key=True)
 
-
     # relationships
-    user_id = db.Column(db.Integer, db.ForeignKey('User.id'))
-    cart_items = db.relationship('Product', backref='cart')
-
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    
+    products = db.relationship('Product', backref='cart')
     # validations
 
     # serializers
@@ -136,13 +141,12 @@ class Cart(db.Model, SerializerMixin):
 class Order(db.Model, SerializerMixin):
     __tablename__ = 'orders'
     id = db.Column(db.Integer, primary_key=True)
-    delivery_date = db.Column(db.DateTime, default=datetime.utcnow)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    delivery_date = db.Column(db.DateTime, default = datetime.utcnow)
+    created_at = db.Column(db.DateTime, default = datetime.utcnow)
     delivery_address = db.Column(db.String)
 
     # relationships
-    user_id = db.Column(db.Integer, db.ForeignKey('User.id'))
-    cart_id = db.Column(db.Integer, db.ForeignKey('Cart.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     # validations
 
