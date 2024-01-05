@@ -81,7 +81,7 @@ export default function NavBar(){
                         <label className="text-2xl font-semibold text-gray-800 cursor-pointer flex items-center gap-2" onMouseOver={()=>{setASHover(true)}} onMouseLeave={()=>{setASHover(false)}}><RiLoopRightFill size={"1.5rem"}/> Autoship</label>
                         <label className="text-lg underline font-semibold text-gray-700 cursor-pointer">Get 15% Off</label>
                         <div className="flex justify-between gap-4 w-1/2 items-center">
-                            <div className="w-[80%] flex bg-white rounded-full h-12 items-center px-4 shadow-md">
+                            <div className="w-[80%] flex bg-white rounded-full h-12 items-center px-4 shadow-md ">
                                 <IoSearchOutline size={"1.5rem"}/>
                                 <input className="w-full h-10 bg-white outline-none mx-4 text-gray-800" placeholder="Search..."></input>
                             </div>
