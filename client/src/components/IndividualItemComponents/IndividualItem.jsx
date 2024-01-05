@@ -56,8 +56,8 @@ export default function BasicGrid() {
 
   return (
     
-    <div className='pt-60 bg-white z-40'>
-      <Box sx={{ flexGrow: 1 }}>
+    <div className='pt-[15rem] bg-white z-40 text-black'>
+      <Box sx={{ flexGrow: 1 }} className="mx-60" >
             
         <Grid container spacing={6}>
           
@@ -102,6 +102,8 @@ export default function BasicGrid() {
                     </ButtonGroup>          
                   </span>
 
+                  
+
                   {/* Sixth stack should have a p, which should say order now to deliver [next week] */}
                   <span>
                     <h3>Order now to receive it by Next Sunday</h3>
@@ -111,7 +113,7 @@ export default function BasicGrid() {
                   <span><h2 className="text-2xl font-bold">Qualities</h2></span>
                   <span>
                       {list_of_qualities.map((quality, index) => (
-                        < Button style={{ marginRight: '12px', marginBottom: '10px' }} color='success' variant='soft' size='md' key={index}>{quality}</Button>
+                        < Button style={{ marginRight: '12px', marginBottom: '10px', borderRadius: '20px' }} color='success' variant='soft' size='md' key={index}>{quality}</Button>
                       ))}
                   </span>
 
@@ -173,7 +175,7 @@ export default function BasicGrid() {
       Below these - inside a span showing discount, then price */}
 
 
-      <Box>
+      <Box className="mx-60 py-10">
         <span><h2 className="text-xl font-bold">Other Related Products</h2></span>
         <br></br> 
         
@@ -274,7 +276,7 @@ export default function BasicGrid() {
 
       <br>
       </br>
-      <Box>
+      <Box className="mx-60 py-4">
         <span><h2 className="text-xl font-bold text-center">Other Customers Also Bought</h2></span>
         <br></br> 
         
