@@ -4,6 +4,8 @@ from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.ext.hybrid import hybrid_property
 property
 
+from datetime import datetime
+
 from config import db, bcrypt
 
 
@@ -21,8 +23,8 @@ from config import db, bcrypt
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String)
-    email = db.Column(db.String)
+    username = db.Column(db.String(40), unique=True)
+    email = db.Column(db.String, unique=True)
     _password_hash = db.Column(db.String)
     address = db.Column(db.String)
 
@@ -47,6 +49,7 @@ class User(db.Model, SerializerMixin):
             password.encode('utf-8')
         )
     #validations
+    
 
     #serializers
     serialize_rules = ('-reviews', '-cart', '-orders')
@@ -55,7 +58,7 @@ class User(db.Model, SerializerMixin):
 class Seller(db.Model, SerializerMixin):
     __tablename__ = 'sellers'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
+    name = db.Column(db.String, unique=True)
     address = db.Column(db.String)
     description_assets = db.Column(db.String)
     email = db.Column(db.String)
@@ -73,7 +76,7 @@ class Seller(db.Model, SerializerMixin):
 class Product (db.Model, SerializerMixin):
     __tablename__ = 'products'
     id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String)
+    name = db.Column(db.String, unique=True)
     price = db.Column(db.Float)
     # for example '10 ounce can', '1 lbs package'
     quantity_desc = db.Column(db.String)
@@ -91,6 +94,12 @@ class Product (db.Model, SerializerMixin):
     reviews = db.relationship('Review', backref='products')
 
     #validations
+    @validates('price')
+    def validate(self, key, value):
+        if (0<=value<=9999):
+            return value
+        else:
+            raise ValueError('Price cannot be negative or cannot be above $9999')
 
     #serializers
     serialize_rules = ('-sellers', '-reviews')
@@ -99,10 +108,11 @@ class Product (db.Model, SerializerMixin):
 class Review(db.Model, SerializerMixin):
     __tablename__ = 'reviews'
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String)
+    title = db.Column(db.String(100), unique=True)
+    content = db.Column(db.String(4000), unique=True)
     rating = db.Column(db.Integer)
     post_date = db.Column(db.DateTime, default = datetime.utcnow)
-    update_date= db.Column(db.DateTime, default = datetime.utcnow)
+    update_date= db.Column(db.DateTime, onupdate = datetime.utcnow)
     
     # relationships
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
