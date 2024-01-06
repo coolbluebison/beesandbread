@@ -10,10 +10,10 @@ export default function Footer(){
     return(
         <>
         <FooterBanner />
-        <div className="w-full bottom-0  bg-rose-300 grid grid-cols-1 md:grid-cols-2 text-black">
-            <div className="col-span-1 flex justify-center items-center min-h-[350px]">
-                <div className="w-1/2 ">
-                    <p className="font-bold text-3xl text-center ">Bees N Bread</p>
+        <div className="w-full bottom-0  bg-rose-300 text-black">
+            <div className="flex justify-between items-center gap-8 mx-52">
+                <div className="w-1/3">
+                    <p className="font-bold text-3xl text-center py-4">Bees N Bread</p>
                     <p className="font-semibold text-lg text-center">Signup for our Newsletter and get updated <br/> on the latest products and deals</p>
                     <form className="flex w-full pt-6 gap-2 items-center justify-center">
                         <input className="w-1/2 rounded-lg bg-white p-2" required placeholder="Email"></input>
@@ -31,14 +31,52 @@ export default function Footer(){
                     </div>
                     
                 </div>
+
+                <div className="flex w-2/3 justify-evenly">
+                <div className="">
+                    <p className="font-semibold p-2 text-xl">Section</p>
+                    <p className="cursor-pointer p-2">example</p>
+                    <p className="cursor-pointer p-2">example</p>
+                    <p className="cursor-pointer p-2">example</p>
+                    <p className="cursor-pointer p-2">example</p>
+                    <p className="cursor-pointer p-2">example</p>
+                    <p className="cursor-pointer p-2">example</p>
+                </div>
+                <div className="">
+                    <p className="font-semibold p-2 text-xl">Section</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                </div>
+                <div className="">
+                    <p className="font-semibold p-2 text-xl">Section</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                </div>
+                <div className="">
+                    <p className="font-semibold p-2 text-xl">Section</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                    <p className="underline cursor-pointer p-2">example</p>
+                </div>
+                </div>
+
             </div>
-            <div className="col-span-1 flex justify-center items-center">
-                <p> hello</p>
-            </div>
-            <div className="col-span-2 bottom-0 relative">
-                <FooterEnd />
-            </div>
+            
+                
+            
         </div>
+        <FooterEnd />
         </>
     )
 }

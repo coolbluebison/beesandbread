@@ -19,16 +19,16 @@ export default function FooterEnd(){
                 <FaCcPaypal size={"4rem"}/>
             </div>
             <div className="text-semibold underline">
-                <p>Terms of Service</p>
-                <p>Information</p>
+                <p className="cursor-pointer">Terms of Service</p>
+                <p className="cursor-pointer">Information</p>
             </div>
             <div className="text-semibold underline">
-                <p>Privacy Policy</p>
-                <p>Accessibility Adjustments</p>
+                <p className="cursor-pointer">Privacy Policy</p>
+                <p className="cursor-pointer">Accessibility Adjustments</p>
             </div>
             <div className="text-semibold underline">
-                <p>CO Supply Chain</p>
-                <p>Sitemap</p>
+                <p className="cursor-pointer" >CO Supply Chain</p>
+                <p className="cursor-pointer">Sitemap</p>
             </div>
         </div>
         <p className="py-2 ">If you are visually-impaired and having difficulty with our website, call us at 1‑111‑111‑1111</p>
