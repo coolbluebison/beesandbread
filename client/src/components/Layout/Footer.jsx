@@ -32,7 +32,7 @@ export default function Footer(){
                     
                 </div>
 
-                <div className="flex w-2/3 justify-evenly">
+                <div className="flex w-2/3 justify-end gap-16">
                 <div className="">
                     <p className="font-semibold p-2 text-xl">Section</p>
                     <p className="cursor-pointer p-2">example</p>

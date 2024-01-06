@@ -46,7 +46,7 @@ export default function DrawerMain(){
                                     <p className="text-lg text-gray-700 font-semibold w-full hover:bg-gray-400 transition-all ease-linear cursor-pointer duration-75 px-4 py-1">Enviromental Impact</p>
                                     <p className="text-lg text-gray-700 font-semibold w-full hover:bg-gray-400 transition-all ease-linear cursor-pointer duration-75 px-4 py-1">FAQ</p>
                             </div>
-                            <SubDrawer sub={sub}/>
+                            <SubDrawer sub={sub} setSub={setSub}/>
                         </div>
                     </ul>
                 </div>

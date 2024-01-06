@@ -8,7 +8,7 @@ import { FaCcMastercard } from "react-icons/fa6";
 
 export default function FooterEnd(){
     return(
-        <div className="bg-rose-800 px-60 py-2 text-white">
+        <div className="bg-rose-800 px-52 py-2 text-white">
         <div className="w-full h-28 text-white flex justify-between items-center">
             <div className="text-gray-200 flex gap-2">
                 <FaCcAmex size={"4rem"}/>
