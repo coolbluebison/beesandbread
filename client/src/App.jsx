@@ -12,12 +12,15 @@ import Rootlayout from './components/Layout/Rootlayout';
 
 import Deals from './components/DealsPage/Deals';
 
+import Login from './components/LoginSignup/Login';
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Rootlayout/>}>
       <Route index element= { <LandingPage /> } />
         <Route path="/item" element= { <IndividualItem /> } />
         <Route path="/deals" element= { <Deals /> } />
+        <Route path='/login' element= {<Login />} />
     </Route>
   )
 )

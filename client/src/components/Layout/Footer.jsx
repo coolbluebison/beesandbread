@@ -13,7 +13,7 @@ export default function Footer(){
         <div className="w-full bottom-0  bg-rose-300 text-black">
             <div className="flex justify-between items-center gap-8 mx-52">
                 <div className="w-1/3">
-                    <p className="font-bold text-3xl text-center py-4">Bees N Bread</p>
+                    <p className="font-bold text-4xl text-center py-4 font-dancing">Bees N Bread</p>
                     <p className="font-semibold text-lg text-center">Signup for our Newsletter and get updated <br/> on the latest products and deals</p>
                     <form className="flex w-full pt-6 gap-2 items-center justify-center">
                         <input className="w-1/2 rounded-lg bg-white p-2" required placeholder="Email"></input>
