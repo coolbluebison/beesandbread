@@ -19,6 +19,10 @@ import { RxAvatar } from "react-icons/rx";
 import { BsCart2 } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
 
+// Trying to import logo
+import Bees1 from './NavBarComponents/Bees1.png'
+import Bees6 from './NavBarComponents/Bees6.png'
+
 
 
 export default function NavBar(){
@@ -73,12 +77,13 @@ export default function NavBar(){
             <div className="drawer">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
-                    <div className="w-full bg-rose-300 h-20 flex items-center justify-between px-10 shadow-sm">
-                        <p className="text-2xl font-bold text-black cursor-pointer">LOGO</p>
-                        <label htmlFor="my-drawer" className="text-2xl font-semibold text-gray-800 cursor-pointer flex items-center gap-2"><CiMenuBurger size={"1.5rem"}/>Menu</label>
-                        <label className="text-2xl font-semibold text-gray-800 cursor-pointer flex items-center gap-2"><CiRedo size={"1.5rem"}/> Buy It Again</label>
-                        <label className="text-2xl font-semibold text-gray-800 cursor-pointer flex items-center gap-2"><IoPricetagOutline size={"1.5rem"}/>Deals</label>
-                        <label className="text-2xl font-semibold text-gray-800 cursor-pointer flex items-center gap-2" onMouseOver={()=>{setASHover(true)}} onMouseLeave={()=>{setASHover(false)}}><RiLoopRightFill size={"1.5rem"}/> Autoship</label>
+                    <div className="w-full bg-amber-200 h-20 flex items-center justify-between px-10 shadow-sm">
+                        {/* <p className="text-2xl font-bold text-black cursor-pointer">LOGO</p> */}
+                        <img src={Bees6} alt="Logo" style={{ width: '80px', height: '80px' }}/>
+                        <label htmlFor="my-drawer" className="text-xl font-semibold text-gray-800 cursor-pointer flex items-center gap-2"><CiMenuBurger size={"1.5rem"}/>Menu</label>
+                        <label className="text-lg font-semibold text-gray-800 cursor-pointer flex items-center gap-2"><CiRedo size={"1.5rem"}/> Buy It Again</label>
+                        <label className="text-lg font-semibold text-gray-800 cursor-pointer flex items-center gap-2"><IoPricetagOutline size={"1.5rem"}/>Deals</label>
+                        <label className="text-lg font-semibold text-gray-800 cursor-pointer flex items-center gap-2" onMouseOver={()=>{setASHover(true)}} onMouseLeave={()=>{setASHover(false)}}><RiLoopRightFill size={"1.5rem"}/> Autoship</label>
                         <label className="text-lg underline font-semibold text-gray-700 cursor-pointer">Get 15% Off</label>
                         <div className="flex justify-between gap-4 w-1/2 items-center">
                             <div className="w-[80%] flex bg-white rounded-full h-12 items-center px-4 shadow-md ">
