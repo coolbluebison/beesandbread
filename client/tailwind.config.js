@@ -6,7 +6,8 @@ export default {
   ],
   theme: {
     extend: {fontFamily: {
-      lato: ["lato"]
+      lato: ["lato"],
+      dancing: ["Dancing Script"]
     }
     },
   },
