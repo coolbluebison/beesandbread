@@ -162,3 +162,9 @@ class Order(db.Model, SerializerMixin):
 
     # serializers
     serialize_rules = ('-user', '-cart')
+
+
+class CartProductAssociation(db.Model):
+    __tablename__ = 'cart_product_association'
+    cart_id = db.Column(db.Integer, db.ForeignKey('carts.id'), primary_key=True)
+    product_id = db.Column(db.Integer, db.ForeignKey('products.id'), primary_key=True)
