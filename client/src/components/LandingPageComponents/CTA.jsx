@@ -58,7 +58,7 @@ export default function CTA(){
 
             </ul>
 
-            <CTASection />
+            <CTASection active={active}/>
 
         </div>
     )
