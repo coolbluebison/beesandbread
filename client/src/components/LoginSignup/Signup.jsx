@@ -50,11 +50,11 @@ export default function SignupComponent(){
                 <div className="h-8 py-5  w-[70%] mx-auto">
                     <div className="flex w-full items-center justify-between p-1">
                         <input type="checkbox" className="checkbox checkbox-xs bg-white checked:border-white [--chkbg:theme(colors.white)]"/>
-                        <p className="text-gray-700 text-sm">Opt In To Email Promotions</p>
+                        <p className="text-gray-700 text-sm underline">Opt In To Email Promotions</p>
                     </div>
                     <div className="flex w-full items-center justify-between p-1">
                         <input type="checkbox" className="checkbox checkbox-xs bg-white checked:border-white [--chkbg:theme(colors.white)]"/>
-                        <p className="text-gray-700 text-sm">Agree To Terms Of Service</p>
+                        <p className="text-gray-700 text-sm underline">Agree To Terms Of Service</p>
                     </div>
                 </div>
 

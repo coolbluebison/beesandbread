@@ -25,7 +25,7 @@ export default function Carousel(){
 
 
     return(
-        <div className="overflow-hidden relative mx-0 md:mx-52  md:h-[37rem]">
+        <div className="overflow-hidden relative mx-0   md:h-[40rem]">
             <div
                 className={`flex transition ease-out duration-500 `}
                 style={{
@@ -61,7 +61,7 @@ export default function Carousel(){
                     setCurrent(i);
                 }}
                 key={"circle" + i}
-                className={`rounded-full md:w-3 md:h-3 w-1 h-1 cursor-pointer  ${
+                className={`rounded-full md:w-2 md:h-2 w-1 h-1 cursor-pointer  ${
                     i == current ? "bg-white" : "bg-gray-500"
                 }`}
                 ></div>
