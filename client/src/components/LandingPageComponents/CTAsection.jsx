@@ -18,8 +18,8 @@ export default function CTASection({active}){
     }
 
     return(
-        <div className="w-full h-[30rem] bg-rose-400 text-white flex">
-            <div className="flex mx-52">
+        <div className={active === 0 ? "w-full h-0 opacity-0 transition-all duration-300 -z-50 bg-rose-400 text-white flex" : "w-full h-[25rem] opacity-100 transition-all duration-300 bg-rose-400 text-white flex"}>
+            <div className={active === 0 ? "hidden" : "flex mx-52"}>
                 <div className="h-full w-1/3 flex items-center justify-center">
                     <span className="bg-rose-300 p-20 rounded-full">
                         {icon(active)}

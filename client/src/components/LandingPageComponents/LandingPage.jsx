@@ -4,6 +4,7 @@ import LandingNav from "./LandingNav"
 import Carousel from "./Carosel"
 import GroceryNav from "./GroceryNav"
 import CTA from "./CTA"
+import Featured from "./Featured"
 
 function LandingPage() {
 
@@ -14,6 +15,7 @@ function LandingPage() {
 
         <LandingNav />
         <Carousel />
+        <Featured />
         <CTA />
         <GroceryNav />
         

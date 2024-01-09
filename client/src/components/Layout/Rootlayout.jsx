@@ -11,7 +11,7 @@ export default function Rootlayout(){
         <>
         {nav.pathname !== '/login' && nav.pathname !== "/" ? <NavBar /> : null }
         <Outlet />
-        {nav.pathname !== '/login' && nav.pathname !== "/"? <Footer /> : null }
+        {nav.pathname !== '/login'? <Footer /> : null }
         </>
     )
 }
