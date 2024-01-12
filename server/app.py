@@ -172,7 +172,7 @@ class ProductNorm(Resource):
             description=product_data['price'],
             price=product_data['quantity_desc'],
             stock=product_data['product_cat'],
-            seller_id=product_data['image_files'],
+            image_files=product_data['image_files'],
             qualities=product_data['qualities'],
             seller_id=product_data['seller_id']
         )
