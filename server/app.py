@@ -69,7 +69,7 @@ class UserNorm(Resource):
             print(e.__str__())
             raise Exception("There was an error while creating the user")
 
-api.add_resource(UserNorm, '/users_table')
+api.add_resource(UserNorm, '/users')
 
 
 class UserById(Resource):
@@ -101,7 +101,7 @@ class UserById(Resource):
         else:
             return {"error":"user does not exist"}
 
-api.add_resource(UserById, "/users_table/<int:id>")
+api.add_resource(UserById, "/users/<int:id>")
 
 
 class SellerNorm(Resource):
@@ -137,7 +137,7 @@ class SellerNorm(Resource):
             print(e.__str__())
             raise Exception("There was an error while creating the seller")
         
-api.add_resource(SellerNorm, "/sellers_table")
+api.add_resource(SellerNorm, "/sellers")
 
 
 class SellerById(Resource):
@@ -172,7 +172,7 @@ class SellerById(Resource):
         else:
             return {"error":"user does not exist"}
 
-api.add_resource(SellerById, "/sellers_table/<int:id>")
+api.add_resource(SellerById, "/sellers/<int:id>")
 
 
 class ProductNorm(Resource):
