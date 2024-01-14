@@ -17,14 +17,13 @@ from config import db, bcrypt
 # Has the user_type property to enable 2 types of users
 # Type1-> Customers
 # Type2-> Sellers 
-    
-
 
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String, unique=True)
+    username = db.Column(db.String(40), unique=True)
     email = db.Column(db.String, unique=True)
+    # created_at = db.Column(db.DateTime, default=datetime.utcnow)
     _password_hash = db.Column(db.String)
     address = db.Column(db.String)
 
@@ -33,28 +32,23 @@ class User(db.Model, SerializerMixin):
     cart = db.relationship('Cart', uselist=False, backref='user')
     orders = db.relationship('Order', backref='user')
 
-    #password hash and authenticate
+    # password hash and authenticate
     @hybrid_property
     def password_hash(self):
         return self._password_hash
+
     @password_hash.setter
     def password_hash(self, password):
-        password_hash = bcrypt.generate_password_hash(
-            password.encode('utf-8')
-        )
-        self._password_hash = password_hash.decode('utf-8')
+        self._password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
+
     def authenticate(self, password):
-        return bcrypt.check_password_hash(
-            self._password_hash,
-            password.encode('utf-8')
-        )
-    #validations
+        return bcrypt.check_password_hash(self._password_hash, password)
+
+    # serializers
+    serialize_rules = ('-reviews', '-cart', '-orders')
     
 
-    #serializers
-    serialize_rules = ('-reviews', '-cart', '-orders')
-
-
+ 
 class Seller(db.Model, SerializerMixin):
     __tablename__ = 'sellers'
     id = db.Column(db.Integer, primary_key=True)
@@ -63,19 +57,17 @@ class Seller(db.Model, SerializerMixin):
     description_assets = db.Column(db.String)
     email = db.Column(db.String)
     phone_number = db.Column(db.String)
-    
-    #relationships
+
+    # relationships
     products = db.relationship('Product', backref='seller')
 
-    #validations
-
-    #serializers - was causing problems, commented it out
-    serialize_rules = ('-products')
+    # serializers
+    serialize_rules = ('-products')   
 
 
-class Product (db.Model, SerializerMixin):
+class Product(db.Model, SerializerMixin):
     __tablename__ = 'products'
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, unique=True)
     price = db.Column(db.Float)
     # for example '10 ounce can', '1 lbs package'
@@ -86,23 +78,24 @@ class Product (db.Model, SerializerMixin):
     # for example grass-fed, organic etc.
     qualities = db.Column(db.String)
 
-    
-    # seller identifier
+    # foreign keys
     seller_id = db.Column(db.Integer, db.ForeignKey('sellers.id'))
 
-    #relationships
-    reviews = db.relationship('Review', backref='products')
+    # relationships
+    reviews = db.relationship('Review', backref='product')
 
-    #validations
+    # trying a many to many relationship between products and carts
+    carts = db.relationship('CartProductAssociation', backref='product')
+
+    # validations
     @validates('price')
-    def validate(self, key, value):
-        if (0<=value<=9999):
-            return value
-        else:
-            raise ValueError('Price cannot be negative or cannot be above $9999')
+    def validate_price(self, key, value):
+        assert 0 <= value <= 9999, 'Price must be between 0 and 9999'
+        return value
 
-    #serializers
-    serialize_rules = ('-sellers', '-reviews')
+    # serializers
+    serialize_rules = ('-seller', '-reviews')
+
 
 
 class Review(db.Model, SerializerMixin):
@@ -132,20 +125,21 @@ class Review(db.Model, SerializerMixin):
     serialize_rules = ('-user', '-products')
 
 
-# The last cart for any users
-# Enables storing latest cart
+
 class Cart(db.Model, SerializerMixin):
     __tablename__ = 'carts'
     id = db.Column(db.Integer, primary_key=True)
 
-    # relationships
+
+    # foreign keys
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    
-    products = db.relationship('Product', backref='cart')
-    # validations
+
+    # trying a many to many relationship between products and carts
+    products = db.relationship('CartProductAssociation', backref='cart')
 
     # serializers
     serialize_rules = ('-user', '-products')
+
 
 
 class Order(db.Model, SerializerMixin):
@@ -168,3 +162,4 @@ class CartProductAssociation(db.Model):
     __tablename__ = 'cart_product_association'
     cart_id = db.Column(db.Integer, db.ForeignKey('carts.id'), primary_key=True)
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'), primary_key=True)
+

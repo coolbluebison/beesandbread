@@ -38,17 +38,17 @@ def seed_sellers():
         db.session.add(new_seller)
 
 
-def seed_products():
-    product_data = [
-        {"name": "Grass Fed Himalayan Salted Ghee", "price": 12.49, "quantity_desc": "9.5 oz jar", "product_cat": "Pantry", "image_files": ["https://img.thrivemarket.com/store/full/8/6/861555000125-1_1_1.jpg?w=1260&jpg_quality=90","https://img.thrivemarket.com/store/full/8/6/861555000125-2_1_1.jpg?w=1260&jpg_quality=90","https://img.thrivemarket.com/store/full/8/6/861555000125__fourth___heart__grass_fed_himalayan_salted_ghee_wyli_1_1.jpg?w=1260&jpg_quality=90"], "qualities": ["Organic, GMO-Free"], "seller_id": 1},
-        {"name": "Free-Range Eggs", "price": 2.99, "quantity_desc": "12 count", "product_cat": "Dairy", "image_files": ["https://img.thrivemarket.com/store/full/1/9/191011000872_front_1_1.jpg?w=256&jpg_quality=80","https://img.thrivemarket.com/store/full/1/9/191011000872_back_1_1.jpg?w=1260&jpg_quality=90"], "qualities": ["Pasture Raised", "Organic", "Vegeterian Fed"], "seller_id": 2},
-    ]
+# def seed_products():
+#     product_data = [
+#         {"name": "Grass Fed Himalayan Salted Ghee", "price": 12.49, "quantity_desc": "9.5 oz jar", "product_cat": "Pantry", "image_files": ["https://img.thrivemarket.com/store/full/8/6/861555000125-1_1_1.jpg?w=1260&jpg_quality=90","https://img.thrivemarket.com/store/full/8/6/861555000125-2_1_1.jpg?w=1260&jpg_quality=90","https://img.thrivemarket.com/store/full/8/6/861555000125__fourth___heart__grass_fed_himalayan_salted_ghee_wyli_1_1.jpg?w=1260&jpg_quality=90"], "qualities": ["Organic, GMO-Free"], "seller_id": 1},
+#         {"name": "Free-Range Eggs", "price": 2.99, "quantity_desc": "12 count", "product_cat": "Dairy", "image_files": ["https://img.thrivemarket.com/store/full/1/9/191011000872_front_1_1.jpg?w=256&jpg_quality=80","https://img.thrivemarket.com/store/full/1/9/191011000872_back_1_1.jpg?w=1260&jpg_quality=90"], "qualities": ["Pasture Raised", "Organic", "Vegeterian Fed"], "seller_id": 2},
+#     ]
 
 
-    for product in product_data:
-        new_product = Product(name=product['name'], price=product['price'], quantity_desc=product['quantity_desc'], product_cat=product['product_cat'], image_files=product['image_files'], qualities=product['qualities'], seller_id = product["seller_id"])
+#     for product in product_data:
+#         new_product = Product(name=product['name'], price=product['price'], quantity_desc=product['quantity_desc'], product_cat=product['product_cat'], image_files=product['image_files'], qualities=product['qualities'], seller_id = product["seller_id"])
 
-        db.session.add(new_product)
+#         db.session.add(new_product)
 
 
 
@@ -62,7 +62,7 @@ if __name__ == '__main__':
 
         seed_users()
         seed_sellers()
-        seed_products()
+        # seed_products()
 
         db.session.commit()
 
