@@ -129,7 +129,7 @@ class Review(db.Model, SerializerMixin):
 
 
     #serializers
-    serialize_rules = ('-user', '-product')
+    serialize_rules = ('-user', '-products')
 
 
 # The last cart for any users

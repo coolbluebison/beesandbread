@@ -3,17 +3,26 @@
 # Standard library imports
 
 # Remote library imports
-from flask import request, render_template
-from flask_restful import Resource
+from flask import Flask, request, render_template , session
+from flask_restful import Resource, Api
+from flask_migrate import Migrate
 
 # Local imports
 from config import app, db, api
 # Add your model imports
+import os
 
 from models import User, Seller, Product, Review, Cart, Order
 
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+DATABASE = os.environ.get(
+    "DB_URI", f"sqlite:///{os.path.join(BASE_DIR, 'app.db')}")
 
 
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://example_postgresql_kwwv_user:aZRpkooOB2XvCeVuPqZCYFQrs3SFGrUF@dpg-clnl5uhll56s73fk34v0-a.oregon-postgres.render.com/example_postgresql_kwwv"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.json.compact = False
 # @app.route('/')
 # def index():
 #     return '<h1>Phase 4 Project Server</h1>'
@@ -22,6 +31,12 @@ from models import User, Seller, Product, Review, Cart, Order
 # @app.errorhandler(404)
 # def not_found(e):
 #     return render_template("index.html")
+
+migrate = Migrate(app, db)
+
+db.init_app(app)
+api = Api(app)
+app.secret_key = 'super secret key'
 
 
 class UserNorm(Resource):
@@ -348,10 +363,14 @@ api.add_resource(OrderById, '/orders/<int:id>')
 
 
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def catch_all(path):
-    return render_template("index.html")
+# @app.route('/', defaults={'path': ''})
+# @app.route('/<path:path>')
+# def catch_all(path):
+#     return render_template("index.html")
+
+@app.route('/')
+def index():
+    return '<h1>Bees N Bread</h1>'
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
