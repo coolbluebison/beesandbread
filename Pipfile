@@ -18,3 +18,9 @@ honcho = "*"
 importlib-metadata = "*"
 python-dotenv = "*"
 psycopg2-binary = "*"
+pandas = "*"
+numpy-financial = "*"
+bcrypt = "*"
+
+[requires]
+python_full_version = "3.8.13"
