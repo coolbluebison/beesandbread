@@ -31,7 +31,7 @@ export default function GroceryNav(){
     console.log(subCat)
 
     return(
-        <div className="bg-white w-full text-center">
+        <div className="bg-white w-full text-center pb-10">
             <div className=" shadow-sm">
             <p className="font-bold text-lg md:text-2xl py-4">View Products Fresh From Farmers</p>
             <div className="flex md:justify-center font-bold text-2xl w-full md:w-[70%] m-auto overflow-x-scroll no-scrollbar">

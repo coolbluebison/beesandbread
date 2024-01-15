@@ -14,6 +14,8 @@ import Deals from './components/DealsPage/Deals';
 
 import Login from './components/LoginSignup/Login';
 
+import ShopMain from './components/Shop/ShopMain';
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Rootlayout/>}>
@@ -21,6 +23,7 @@ const router = createBrowserRouter(
         <Route path="/item" element= { <IndividualItem /> } />
         <Route path="/deals" element= { <Deals /> } />
         <Route path='/login' element= {<Login />} />
+        <Route path='/shop' element={<ShopMain />} />
     </Route>
   )
 )
