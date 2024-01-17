@@ -41,8 +41,8 @@ def seed_sellers():
 
 def seed_products():
     product_data = [
-        {"name": "Grass Fed Himalayan Salted Ghee", "price": 12.49, "quantity_desc": "9.5 oz jar", "product_cat": "Pantry", "image_files": "https://img.thrivemarket.com/store/full/8/6/861555000125-1_1_1.jpg?w=1260&jpg_quality=90", "qualities": "Organic, GMO-Free", "seller_id": 11},
-        {"name": "Free-Range Eggs", "price": 2.99, "quantity_desc": "12 count", "product_cat": "Dairy", "image_files": "https://img.thrivemarket.com/store/full/1/9/191011000872_front_1_1.jpg?w=256&jpg_quality=80", "qualities": "Pasture Raised", "seller_id": 12},
+        {"name": "Grass Fed Himalayan Salted Ghee", "price": 12.49, "quantity_desc": "9.5 oz jar", "product_cat": "Pantry", "image_files": "https://img.thrivemarket.com/store/full/8/6/861555000125-1_1_1.jpg?w=1260&jpg_quality=90", "qualities": "Organic, GMO-Free", "seller_id": 31},
+        {"name": "Free-Range Eggs", "price": 2.99, "quantity_desc": "12 count", "product_cat": "Dairy", "image_files": "https://img.thrivemarket.com/store/full/1/9/191011000872_front_1_1.jpg?w=256&jpg_quality=80", "qualities": "Pasture Raised", "seller_id": 32},
     ]
 
     for product in product_data:
@@ -59,8 +59,8 @@ if __name__ == '__main__':
         print("Starting seed...")
         # Seed code goes here!
 
-        User.query.delete()
-        Seller.query.delete()
+        # User.query.delete()
+        # Seller.query.delete()
         Product.query.delete()
 
         # seed_users()

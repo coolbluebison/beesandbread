@@ -61,7 +61,7 @@ class Seller(db.Model, SerializerMixin):
     products = db.relationship('Product', backref='seller')
 
     # serializers
-    serialize_rules = ('-products')   
+    # serialize_rules = ('-products')   
 
 class Product(db.Model, SerializerMixin):
     __tablename__ = 'products'
