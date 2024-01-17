@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 
 # Standard library imports
@@ -18,7 +19,6 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 DATABASE = os.environ.get(
     "DB_URI", f"sqlite:///{os.path.join(BASE_DIR, 'app.db')}")
 
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://example_postgresql_kwwv_user:aZRpkooOB2XvCeVuPqZCYFQrs3SFGrUF@dpg-clnl5uhll56s73fk34v0-a.oregon-postgres.render.com/example_postgresql_kwwv"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -37,7 +37,6 @@ migrate = Migrate(app, db)
 db.init_app(app)
 api = Api(app)
 app.secret_key = 'super secret key'
-
 
 class UserNorm(Resource):
 
@@ -69,8 +68,7 @@ class UserNorm(Resource):
             print(e.__str__())
             raise Exception("There was an error while creating the user")
 
-api.add_resource(UserNorm, '/users_table')
-
+api.add_resource(UserNorm, '/users')
 
 class UserById(Resource):
 
@@ -101,8 +99,7 @@ class UserById(Resource):
         else:
             return {"error":"user does not exist"}
 
-api.add_resource(UserById, "/users_table/<int:id>")
-
+api.add_resource(UserById, "/users/<int:id>")
 
 class SellerNorm(Resource):
 
@@ -137,8 +134,7 @@ class SellerNorm(Resource):
             print(e.__str__())
             raise Exception("There was an error while creating the seller")
         
-api.add_resource(SellerNorm, "/sellers_table")
-
+api.add_resource(SellerNorm, "/sellers")
 
 class SellerById(Resource):
 
@@ -158,7 +154,6 @@ class SellerById(Resource):
         else:
             return {"error":"user does not exist"}, 404         
 
-
     def delete(self,id):
         
         seller_to_delete = Seller.query.filter_by(id=id).first()
@@ -172,8 +167,7 @@ class SellerById(Resource):
         else:
             return {"error":"user does not exist"}
 
-api.add_resource(SellerById, "/sellers_table/<int:id>")
-
+api.add_resource(SellerById, "/sellers/<int:id>")
 
 class ProductNorm(Resource):
     def get(self):
@@ -196,7 +190,6 @@ class ProductNorm(Resource):
         return new_product.to_dict(), 201
 
 api.add_resource(ProductNorm, '/products')
-
 
 class ProductById(Resource):
     def get(self, id):
@@ -225,7 +218,6 @@ class ProductById(Resource):
 
 api.add_resource(ProductById, '/products/<int:id>')
 
-
 class ReviewNorm(Resource):
     def get(self):
         reviews = Review.query.all()
@@ -246,7 +238,6 @@ class ReviewNorm(Resource):
 
 api.add_resource(ReviewNorm, '/reviews')
 
-
 class ReviewById(Resource):
     def get(self, id):
         review = Review.query.get(id)
@@ -262,7 +253,6 @@ class ReviewById(Resource):
             return {'error': 'Review not found'}, 404
 
 api.add_resource(ReviewById, '/reviews/<int:id>')
-
 
 class CartNorm(Resource):
     def get(self):
@@ -282,7 +272,6 @@ class CartNorm(Resource):
         return new_cart.to_dict(), 201
 
 api.add_resource(CartNorm, '/carts')
-
 
 class CartById(Resource):
     def get(self, id):
@@ -311,7 +300,6 @@ class CartById(Resource):
 
 api.add_resource(CartById, '/carts/<int:id>')
 
-
 class OrderNorm(Resource):
     def get(self):
         orders = Order.query.all()
@@ -331,7 +319,6 @@ class OrderNorm(Resource):
         return new_order.to_dict(), 201
 
 api.add_resource(OrderNorm, '/orders')
-
 
 class OrderById(Resource):
     def get(self, id):
@@ -359,7 +346,6 @@ class OrderById(Resource):
             return {'error': 'Order not found'}, 404
 
 api.add_resource(OrderById, '/orders/<int:id>')
-
 
 
 
